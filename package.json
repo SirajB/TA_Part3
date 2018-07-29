@@ -1,0 +1,22 @@
+{
+  "name": "testswork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-datetime": "^1.5.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "chai-date": "^1.0.0",
+    "date-diff": "^0.2.0",
+    "to-pascal-case": "^1.0.0"
+  }
+}
