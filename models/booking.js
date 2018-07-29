@@ -11,29 +11,35 @@ class Booking {
         return diff.days()+1;
     }
 
-    authorize(){
-        return false
+    authorize(name, date){
+        this.authorizedByName = name;
+        this.date = date
+        
     }
 
     isAuthorized(){
-        if(!this.authorize()){
-            return false;
-        }
-        return true;
+        if(this.authorizedByName){
+            return true;
+        }else {
+        return false;
+     }
     }
 
     authorizedBy(){
-        if(!this.isAuthorized()){
+        if(this.authorizedByName === undefined){
             return null;
+        } else {
+            return this.authorizedByName
         }
     }
 
     authorizedOn(){
-        if(!this.isAuthorized()){
+        if(this.date === undefined){
             return null;
+        } else {
+        return(new Date(this.date));
         }
-        return(new Date());
-    }
+}
 
     
 }

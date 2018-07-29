@@ -13,10 +13,26 @@ describe('Booking', () => {
         expect(booking.numberOfDays()).to.eql(5);
     });
 
-    it('shows who is authorized', () => {
+    it('shows authorisation', () => {
         expect(booking.isAuthorized()).to.eql(false);
         expect(booking.authorizedBy()).to.eql(null);
         expect(booking.authorizedOn()).to.eql(null);
     });
+
+    it ('Allows Mr Boss Man to authorise', () => {
+        expect(booking.authorize('Mr Boss Man')).to.eql();
+        expect(booking.isAuthorized()).to.eql(true);
+        expect(booking.authorizedBy()).to.eql('Mr Boss Man');
+        expect(booking.authorizedOn()).to.eql(null);
+    });
+    
+    it ('Allows Mr Boss Man to authorise on a certain date', () => {
+        expect(booking.authorize('Mr Boss Man', new Date('2018-07-01'))).to.eql();
+        expect(booking.isAuthorized()).to.eql(true);
+        expect(booking.authorizedBy()).to.eql('Mr Boss Man');
+        expect(booking.authorizedOn()).to.eql(new Date('2018-07-01'));
+    });
+
+
 });
 
